@@ -209,3 +209,5 @@ set wildmode=list:longest
 augroup vimrcEx
     autocmd VimEnter * call CmdAlias('X','x')
 augroup END
+
+set wildignore+=*.retry
