@@ -176,7 +176,7 @@ endif
 " Airline
 if join(g:vundle#bundles) =~# 'vim-airline'
     let g:airline#extensions#syntastic#enabled = 1
-    let g:airline#extensions#tabline#enabled = 1
+    "let g:airline#extensions#tabline#enabled = 1
 endif
 
 " Clang
@@ -211,3 +211,4 @@ augroup vimrcEx
 augroup END
 
 set wildignore+=*.retry
+set guioptions+=e
