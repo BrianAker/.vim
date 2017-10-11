@@ -4,6 +4,16 @@ if has('gui_macvim')
   set go-=T
   let g:macvim_hig_shift_movement = 1
   set guioptions+=e
-  " Settings for MacVim and Inconsolata font
-  " let g:CtrlSpaceSymbols = { "File": "◯", "CTab": "▣", "Tabs": "▢" }
+  set cb=autoselect
+  set pastetoggle=<F2>
+  let &t_SI .= "\<Esc>[?2004h"
+  let &t_EI .= "\<Esc>[?2004l"
+
+  inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 endif
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
