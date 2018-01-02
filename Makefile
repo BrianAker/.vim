@@ -1,8 +1,17 @@
-# vim:
+# vim:ft=make
+MAKEFLAGS += --no-builtin-rules
+
+.SUFFIXES:
 
 HOME:= $(shell cd ~; pwd)
 mkdir_p= mkdir -p
-dirstamp= .dirstamp
+dirstamp:= .dirstamp
+PREREQ=
+am_DIRECTORIES=
+
+VIM_DIR:= $(HOME)/.vim
+VIMRC:= $(HOME)/.vimrc
+
 VIMRC_VIM:= vimrc.vim
 BUNDLE_VIM:= bundle.vim
 EDITOR:= vim
@@ -12,15 +21,27 @@ VUNDLE_VIM:= bundle/Vundle.vim/$(dirstamp)
 VUNDLE_REPO:= https://github.com/VundleVim/Vundle.vim.git
 INSTALL_C:= install -C
 TOUCH_R:= touch -r
-BUNDLES:= bundle/.dirstamp
+TOUCH:= touch
+INSTALL_DIR_TARGETS=
+MKDIR_P:= mkdir -p
+INSTALL_D:= install -d
 
-.SUFFIXES:
+INSTALL_DIR_TARGETS+= bundle
+INSTALL_DIR_TARGETS+= pack
+INSTALL_DIR_TARGETS+= colors
 
-VIMRC:= $(HOME)/.vimrc
+am_install__DIRECTORIES= $(addprefix $(VIM_DIR)/, $(INSTALL_DIR_TARGETS))
+install__DIRECTORIES= $(addsuffix /$(dirstamp), $(am_install__DIRECTORIES))
 
-colors/$(dirstamp): /dev/null
-	@$(mkdir_p) $(@D)
-	@$(INSTALL_C) $< $@
+am_DIRECTORIES+= $(build__DIRECTORIES)
+am_DIRECTORIES+= $(install__DIRECTORIES)
+
+.PHONY: install_dir_am
+install_dir_am: $(install__DIRECTORIES)
+
+$(am_DIRECTORIES):
+	@$(INSTALL_D) $(@D)
+	@$(TOUCH) $@
 
 .PHONY: display
 display: 
@@ -66,7 +87,6 @@ update:
 
 $(VIMRC): $(VIMRC_VIM)
 	@$(INSTALL_C) $< $@
-
 
 .ONESHELL:
 all: $(VUNDLE_VIM)
