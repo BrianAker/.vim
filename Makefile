@@ -4,9 +4,9 @@ MAKEFLAGS += --no-builtin-rules
 .SUFFIXES:
 
 HOME:= $(shell cd ~; pwd)
-mkdir_p= mkdir -p
 dirstamp:= .dirstamp
 PREREQ=
+PREREQ_DIR=
 am_DIRECTORIES=
 
 VIM_DIR:= $(HOME)/.vim
@@ -30,10 +30,10 @@ INSTALL_DIR_TARGETS+= bundle
 INSTALL_DIR_TARGETS+= pack
 INSTALL_DIR_TARGETS+= colors
 
-am_install__DIRECTORIES= $(addprefix $(VIM_DIR)/, $(INSTALL_DIR_TARGETS))
-install__DIRECTORIES= $(addsuffix /$(dirstamp), $(am_install__DIRECTORIES))
+am_install__DIRECTORIES= $(addsuffix /$(dirstamp), $(INSTALL_DIR_TARGETS))
+install__DIRECTORIES= $(addprefix $(VIM_DIR)/, $(am_install__DIRECTORIES))
 
-am_DIRECTORIES+= $(build__DIRECTORIES)
+am_DIRECTORIES+= $(am_install__DIRECTORIES)
 am_DIRECTORIES+= $(install__DIRECTORIES)
 
 .PHONY: install_dir_am
