@@ -17,6 +17,7 @@ BUNDLE_VIM:= bundle.vim
 EDITOR:= vim
 VIM:= vim -u $(VIMRC_VIM)
 VUNDLE:= bundle/Vundle.vim/README.md
+BUNDLE_DIR:= bundle/$(dirstamp)
 VUNDLE_VIM:= bundle/Vundle.vim/$(dirstamp)
 VUNDLE_REPO:= https://github.com/VundleVim/Vundle.vim.git
 INSTALL_C:= install -C
@@ -26,7 +27,7 @@ INSTALL_DIR_TARGETS=
 MKDIR_P:= mkdir -p
 INSTALL_D:= install -d
 
-INSTALL_DIR_TARGETS+= bundle
+#INSTALL_DIR_TARGETS+= bundle
 INSTALL_DIR_TARGETS+= pack
 INSTALL_DIR_TARGETS+= colors
 
@@ -58,11 +59,12 @@ bundle/vim-colors-solarized/colors/solarized.vim:
 colors/solarized.vim: bundle/vim-colors-solarized/colors/solarized.vim colors/$(dirstamp)
 	@$(INSTALL_C) $< $@
 
-$(BUNDLES): $(BUNDLE_VIM)
+$(BUNDLE_DIR): $(BUNDLE_VIM)
 	@$(VIM) +PluginClean! +qall
 	@$(VIM) +PluginInstall! +qall
 	@$(VIM) +PluginClean! +qall
-	@	$(TOUCH_R) $< $@
+	@$(MKDIR_P) $(dir $@)
+	@$(TOUCH_R) $< $@
 
 .phony: install
 install: | all check $(VIMRC) gvimrc
@@ -82,14 +84,14 @@ $(VUNDLE_VIM): $(VUNDLE)
 
 .PHONY: update
 update:
-	@rm -rf $(VUNDLE_VIM) $(BUNDLES)
+	@rm -rf $(BUNDLE_DIR) $(VUNDLE_VIM) $(BUNDLES)
 	$(MAKE)
 
 $(VIMRC): $(VIMRC_VIM)
 	@$(INSTALL_C) $< $@
 
 .ONESHELL:
-all: $(VUNDLE_VIM)
+all: $(BUNDLE_DIR) $(VUNDLE_VIM)
 
 .ONESHELL:
 .PHONY: uninstall

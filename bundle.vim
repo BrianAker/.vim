@@ -16,8 +16,8 @@ Plugin 'scrooloose/syntastic'
 
 " vim-scripts repos
 Plugin 'airblade/vim-gitgutter.git'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Absolight/vim-bind.git'
 Plugin 'BrianAker/dhcpd.vim'
 Plugin 'BrianAker/shell-commands'
@@ -31,6 +31,8 @@ Plugin 'vim-scripts/cmdalias.vim'
 " Plugin 'vim-legalese'
 " Plugin 'vim-scripts/cpp.vim'
 Plugin 'vim-jp/vim-cpp'
+"
+" additional vim c++ syntax 
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'darfink/vim-plist'
 
@@ -127,6 +129,11 @@ Plugin 'tpope/vim-liquid'
 
 " OpenHab
 Plugin 'cyberkov/openhab-vim'
+
+" Arduino
+Plugin 'vim-scripts/Arduino-syntax-file'
+"
+Plugin 'gu-fan/colorv.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

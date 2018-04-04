@@ -125,8 +125,10 @@ if join(g:vundle#bundles) =~# 'syntastic'
 
     let g:syntastic_always_populate_loc_list = 1
     let g:syntastic_auto_loc_list = 1
-    let g:syntastic_check_on_open = 1
+    let g:syntastic_check_on_open = 0
     let g:syntastic_check_on_wq = 0
+    let g:syntastic_cpp_check_header = 0
+    let g:syntastic_cpp_remove_include_errors = 1
     let g:syntastic_auto_jump = 1
     "  Extras
     let g:syntastic_yaml_checkers = ['pyyaml']
@@ -143,6 +145,7 @@ if join(g:vundle#bundles) =~# 'syntastic'
     let g:my_syntastic_quiet_messages = ['SC2148', 'SC1090', 'SC2039', 'SC2112']
     let g:syntastic_quiet_messages = { 'regex': g:my_syntastic_quiet_messages }
     let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+    let g:syntastic_loc_list_height=3
     " Obvious security issue to resolve
     " let g:syntastic_enable_perl_checker = 1
 
