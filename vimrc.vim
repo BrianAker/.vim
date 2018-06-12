@@ -131,6 +131,7 @@ if join(g:vundle#bundles) =~# 'syntastic'
     let g:syntastic_cpp_remove_include_errors = 1
     let g:syntastic_auto_jump = 1
     "  Extras
+    let g:syntastic_markdown_checkers = ['mdl']
     let g:syntastic_yaml_checkers = ['pyyaml']
     let g:syntastic_cfg_checkers = ['cfg']
     let g:syntastic_dosini_checkers = ['dosini']
