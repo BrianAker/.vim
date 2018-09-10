@@ -9,14 +9,15 @@ let g:vundle_default_git_proto = 'git'
 
 
 " let Syntastic take its turn
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale'
 
 " let Polyglot take its turn
 " Plugin 'sheerun/vim-polyglot'
 
 " vim-scripts repos
 Plugin 'airblade/vim-gitgutter.git'
-"Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline'
 "Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Absolight/vim-bind.git'
 Plugin 'BrianAker/dhcpd.vim'
@@ -43,12 +44,12 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/gnupg.vim'
 Plugin 'vim-scripts/ifdef-highlighting'
 " Plugin 'ingydotnet/yaml-vim'
-Plugin 'vim-scripts/lodgeit.vim'
+" Plugin 'vim-scripts/lodgeit.vim'
 Plugin 'macros/matchit.vim'
 " Color scheme I do not use
 " Plugin 'molokai'
 Plugin 'mitsuhiko/vim-jinja'
-Plugin 'myint/syntastic-extras'
+" Plugin 'myint/syntastic-extras'
 Plugin 'nvie/vim-flake8'
 Plugin 'hashivim/vim-consul'
 Plugin 'hashivim/vim-nomadproject'
@@ -96,7 +97,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'junegunn/vader.vim'
 Plugin 'vim-scripts/vim-do'
 Plugin 'vim-scripts/DirDiff.vim'
-Plugin 'BrianAker/groovy.vim'
+Plugin 'BrianAker/vim-groovy'
 Plugin 'vim-scripts/grails-vim'
 Plugin 'honza/dockerfile.vim'
 Plugin 'Persistent13/vim-ps1'
@@ -118,6 +119,7 @@ Plugin 'syngan/vim-vimlint'
 Plugin 'ynkdir/vim-vimlparser'
 Plugin 'vim-jekyll'
 Plugin 'vim-scripts/linebreakat.vim'
+Plugin 'Clavelito/indent-sh.vim'
 
 " Both required for Markdown
 Plugin 'godlygeek/tabular'

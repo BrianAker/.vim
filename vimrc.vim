@@ -105,7 +105,7 @@ set visualbell t_vb=
 " autocmd BufNewFile,BufRead *.j2 set filetype=jinja
 " augroup END
 
-map  :Lodgeit<CR> 
+" map  :Lodgeit<CR> 
 
 " BEGIN syntax/m4.vim
 let g:m4_default_quote="`,'" 
@@ -179,8 +179,9 @@ endif
 
 " Airline
 if join(g:vundle#bundles) =~# 'vim-airline'
-    let g:airline#extensions#syntastic#enabled = 1
+    "let g:airline#extensions#syntastic#enabled = 1
     "let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#show_buffers = 0
 endif
 
 " Clang
@@ -216,7 +217,13 @@ augroup END
 
 set wildignore+=*.retry
 set guioptions+=e
+"set guioptions+=a
 
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
+
+" yank to clipboard
+if has("clipboard")
+  set clipboard=unnamed " copy to the system clipboard
+endif
