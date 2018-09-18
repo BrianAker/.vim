@@ -129,6 +129,12 @@ Plugin 'JamshedVesuna/vim-markdown-preview'
 " Vim Liquid runtime files with Jekyll enhancements
 Plugin 'tpope/vim-liquid'
 
+" Unused for the moment
+Plugin 'mattn/webapi-vim'
+
+" Unused for the moment
+Plugin 'mattn/gist-vim'
+
 " OpenHab
 Plugin 'cyberkov/openhab-vim'
 
