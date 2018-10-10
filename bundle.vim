@@ -9,7 +9,8 @@ let g:vundle_default_git_proto = 'git'
 
 
 " let Syntastic take its turn
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale'
 
 " let Polyglot take its turn
 " Plugin 'sheerun/vim-polyglot'
@@ -17,7 +18,7 @@ Plugin 'scrooloose/syntastic'
 " vim-scripts repos
 Plugin 'airblade/vim-gitgutter.git'
 Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Absolight/vim-bind.git'
 Plugin 'BrianAker/dhcpd.vim'
 Plugin 'BrianAker/shell-commands'
@@ -31,6 +32,8 @@ Plugin 'vim-scripts/cmdalias.vim'
 " Plugin 'vim-legalese'
 " Plugin 'vim-scripts/cpp.vim'
 Plugin 'vim-jp/vim-cpp'
+"
+" additional vim c++ syntax 
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'darfink/vim-plist'
 
@@ -41,12 +44,12 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/gnupg.vim'
 Plugin 'vim-scripts/ifdef-highlighting'
 " Plugin 'ingydotnet/yaml-vim'
-Plugin 'vim-scripts/lodgeit.vim'
+" Plugin 'vim-scripts/lodgeit.vim'
 Plugin 'macros/matchit.vim'
 " Color scheme I do not use
 " Plugin 'molokai'
 Plugin 'mitsuhiko/vim-jinja'
-Plugin 'myint/syntastic-extras'
+" Plugin 'myint/syntastic-extras'
 Plugin 'nvie/vim-flake8'
 Plugin 'hashivim/vim-consul'
 Plugin 'hashivim/vim-nomadproject'
@@ -94,7 +97,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'junegunn/vader.vim'
 Plugin 'vim-scripts/vim-do'
 Plugin 'vim-scripts/DirDiff.vim'
-Plugin 'BrianAker/groovy.vim'
+Plugin 'BrianAker/vim-groovy'
 Plugin 'vim-scripts/grails-vim'
 Plugin 'honza/dockerfile.vim'
 Plugin 'Persistent13/vim-ps1'
@@ -116,6 +119,7 @@ Plugin 'syngan/vim-vimlint'
 Plugin 'ynkdir/vim-vimlparser'
 Plugin 'vim-jekyll'
 Plugin 'vim-scripts/linebreakat.vim'
+Plugin 'Clavelito/indent-sh.vim'
 
 " Both required for Markdown
 Plugin 'godlygeek/tabular'
@@ -125,8 +129,19 @@ Plugin 'JamshedVesuna/vim-markdown-preview'
 " Vim Liquid runtime files with Jekyll enhancements
 Plugin 'tpope/vim-liquid'
 
+" Unused for the moment
+Plugin 'mattn/webapi-vim'
+
+" Unused for the moment
+Plugin 'mattn/gist-vim'
+
 " OpenHab
 Plugin 'cyberkov/openhab-vim'
+
+" Arduino
+Plugin 'vim-scripts/Arduino-syntax-file'
+"
+Plugin 'gu-fan/colorv.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

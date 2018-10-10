@@ -105,7 +105,7 @@ set visualbell t_vb=
 " autocmd BufNewFile,BufRead *.j2 set filetype=jinja
 " augroup END
 
-map  :Lodgeit<CR> 
+" map  :Lodgeit<CR> 
 
 " BEGIN syntax/m4.vim
 let g:m4_default_quote="`,'" 
@@ -125,10 +125,13 @@ if join(g:vundle#bundles) =~# 'syntastic'
 
     let g:syntastic_always_populate_loc_list = 1
     let g:syntastic_auto_loc_list = 1
-    let g:syntastic_check_on_open = 1
+    let g:syntastic_check_on_open = 0
     let g:syntastic_check_on_wq = 0
+    let g:syntastic_cpp_check_header = 0
+    let g:syntastic_cpp_remove_include_errors = 1
     let g:syntastic_auto_jump = 1
     "  Extras
+    let g:syntastic_markdown_checkers = ['mdl']
     let g:syntastic_yaml_checkers = ['pyyaml']
     let g:syntastic_cfg_checkers = ['cfg']
     let g:syntastic_dosini_checkers = ['dosini']
@@ -143,6 +146,7 @@ if join(g:vundle#bundles) =~# 'syntastic'
     let g:my_syntastic_quiet_messages = ['SC2148', 'SC1090', 'SC2039', 'SC2112']
     let g:syntastic_quiet_messages = { 'regex': g:my_syntastic_quiet_messages }
     let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+    let g:syntastic_loc_list_height=3
     " Obvious security issue to resolve
     " let g:syntastic_enable_perl_checker = 1
 
@@ -175,8 +179,9 @@ endif
 
 " Airline
 if join(g:vundle#bundles) =~# 'vim-airline'
-    let g:airline#extensions#syntastic#enabled = 1
+    "let g:airline#extensions#syntastic#enabled = 1
     "let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#show_buffers = 0
 endif
 
 " Clang
@@ -212,8 +217,16 @@ augroup END
 
 set wildignore+=*.retry
 set guioptions+=e
+"set guioptions+=a
 
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
+
+" For MacOSX
 set mouse=r
+
+" yank to clipboard
+if has("clipboard")
+  set clipboard=unnamed " copy to the system clipboard
+endif
