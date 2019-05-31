@@ -232,4 +232,4 @@ if has("clipboard")
 endif
 
 " Format JSON
-com! FormatJSON %!python -m json.tool
+"com! FormatJSON %!python -m json.tool
