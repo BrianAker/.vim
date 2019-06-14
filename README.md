@@ -9,3 +9,7 @@ Plugins are enabled/disabled by commenting them out in bundle.vim.
 The vimrc.vim will overwrite your $HOME/.vimrc file.
 
 	-Brian
+
+  BTW if MacVim fails to provides menus try this:
+
+    defaults write org.vim.MacVim MMLoginShell -bool NO
