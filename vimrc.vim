@@ -224,7 +224,7 @@ set pastetoggle=<F2>
 set showmode
 
 " For MacOSX
-set mouse=r
+"set mouse=r
 
 " yank to clipboard
 if has("clipboard")

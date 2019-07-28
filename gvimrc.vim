@@ -10,6 +10,8 @@ if has('gui_macvim')
   let &t_EI .= "\<Esc>[?2004l"
 
   inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+  " For MacOSX
+  set mouse=a
 endif
 
 function! XTermPasteBegin()

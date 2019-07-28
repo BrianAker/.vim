@@ -11,7 +11,8 @@ am_DIRECTORIES =
 INSTALL_DIR_TARGETS =
 
 VIM_DIR:= $(HOME)/.vim
-VIMRC:= $(HOME)/.vimrc
+#VIMRC:= $(HOME)/.vimrc
+VIMRC:= vimrc
 
 VIMRC_VIM:= vimrc.vim
 BUNDLE_VIM:= bundle.vim
