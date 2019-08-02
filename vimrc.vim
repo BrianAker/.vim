@@ -223,6 +223,9 @@ nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
 
+" Matchit
+runtime macros/matchit.vim
+
 " For MacOSX
 "set mouse=r
 
