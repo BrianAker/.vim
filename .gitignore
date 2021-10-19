@@ -10,3 +10,4 @@ syntax
 gvimrc
 vimrc
 .VimballRecord
+autoload/plug.vim

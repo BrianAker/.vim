@@ -17,11 +17,11 @@ VIMRC:= vimrc
 VIMRC_VIM:= vimrc.vim
 BUNDLE_VIM:= bundle.vim
 EDITOR:= vim
-VIM:= vim -u $(VIMRC_VIM)
-VUNDLE:= bundle/Vundle.vim/README.md
+VIM:= vim -u $(VIMRC_VIM) -T vt100
+VIMPLUG:= $(VIM_DIR)/autoload/plug.vim
 BUNDLE_LAST_UPDATED:= bundle/.last_updated
-VUNDLE_VIM:= bundle/Vundle.vim/$(dirstamp)
-VUNDLE_REPO:= https://github.com/VundleVim/Vundle.vim.git
+VIMPLUG_DIR:= $(VIM_DIR)/bundle/vim-plug/plug.vim
+VIMPLUG_REPO:= https://github.com/junegunn/vim-plug
 INSTALL_C:= install -C
 TOUCH_R:= touch -r
 TOUCH:= touch
@@ -55,10 +55,10 @@ display:
 	@echo $(am_DIRECTORIES)
 
 .PHONY: all
-all: $(VUNDLE_VIM) $(BUNDLE_LAST_UPDATED) | $(prereq__DIRECTORIES)
+all: $(VIMPLUG) $(BUNDLE_LAST_UPDATED) | $(prereq__DIRECTORIES)
 
 bundle/vim-colors-solarized/colors/solarized.vim:
-	@$(VIM) +PluginInstall! +qall
+	@$(VIM) +PlugInstall! +qall
 
 # Dead rule
 colors/solarized.vim: bundle/vim-colors-solarized/colors/solarized.vim colors/$(dirstamp)
@@ -66,9 +66,9 @@ colors/solarized.vim: bundle/vim-colors-solarized/colors/solarized.vim colors/$(
 
 $(BUNDLE_LAST_UPDATED): $(BUNDLE_VIM)
 	@$(MKDIR_P) $(dir $@)
-	@$(VIM) +PluginClean! +qall
-	@$(VIM) +PluginInstall! +qall
-	@$(VIM) +PluginClean! +qall
+	@$(VIM) +PlugClean! +qall
+	@$(VIM) +PlugInstall! +qall
+	@$(VIM) +PlugClean! +qall
 	@$(TOUCH_R) $< $@
 
 .phony: install
@@ -80,12 +80,13 @@ gvimrc: gvimrc.vim
 .PHONY: check
 check: all
 	@$(VIM) +qall
+	@$(VIM) +PlugStatus +qall
 
-$(VUNDLE):
-	@git clone $(VUNDLE_REPO) $(@D)
+$(VIMPLUG): $(VIMPLUG_DIR)
+	@$(INSTALL_C) $< $@
 	
-$(VUNDLE_VIM): $(VUNDLE)
-	@$(TOUCH_R) $< $@
+$(VIMPLUG_DIR):
+	git clone $(VIMPLUG_REPO) $@
 
 .PHONY: update
 update:
@@ -101,7 +102,7 @@ uninstall: clean
 
 .PHONY: clean
 clean:
-	@vim +PluginClean! +qall
+	@$(VIM) +PlugClean! +qall
 	@if [ -L $(VIMRC) ]; then rm $(VIMRC); fi
 	@rm -rf colors
 	@rm -rf $(dir $(BUNDLE_LAST_UPDATED))

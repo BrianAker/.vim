@@ -1,130 +1,123 @@
 " vim:set softtabstop=4 shiftwidth=4 expandtab :
 " NOTE: vim-scripts is no longer being updated on Github, I am still using
 " them for reference versions at this time
-filetype off      " Vundle Requirement
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-let g:vundle_default_git_proto = 'git'
-
-
-" let Syntastic take its turn
-" Plugin 'scrooloose/syntastic'
-Plugin 'w0rp/ale'
-
-" let Polyglot take its turn
-" Plugin 'sheerun/vim-polyglot'
-
-" vim-scripts repos
-Plugin 'airblade/vim-gitgutter.git'
-Plugin 'vim-airline/vim-airline'
-"Plugin 'vim-airline/vim-airline-themes'
-Plugin 'Absolight/vim-bind.git'
-Plugin 'BrianAker/dhcpd.vim'
-Plugin 'dkprice/vim-easygrep'
-Plugin 'sjl/gundo.vim'
-Plugin 'vim-scripts/gdbmgr'
-Plugin 'pearofducks/ansible-vim'
-Plugin 'Rip-Rip/clang_complete'
-Plugin 'vim-scripts/cmdalias.vim'
-" Plugin 'vim-legalese'
-" Plugin 'vim-scripts/cpp.vim'
-Plugin 'vim-jp/vim-cpp'
-"
-" additional vim c++ syntax 
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'darfink/vim-plist'
-
-" Git made easy for vim
-Plugin 'tpope/vim-fugitive'
-
-" Plugin 'git-commit'
-Plugin 'vim-scripts/gnupg.vim'
-Plugin 'vim-scripts/ifdef-highlighting'
-" Plugin 'ingydotnet/yaml-vim'
-" Plugin 'vim-scripts/lodgeit.vim'
-" Color scheme I do not use
-" Plugin 'molokai'
-Plugin 'mitsuhiko/vim-jinja'
-" Plugin 'myint/syntastic-extras'
-Plugin 'nvie/vim-flake8'
-Plugin 'hashivim/vim-consul'
-Plugin 'hashivim/vim-nomadproject'
-Plugin 'hashivim/vim-ottoproject'
-Plugin 'hashivim/vim-packer'
-Plugin 'hashivim/vim-terraform'
-Plugin 'hashivim/vim-vagrant'
-Plugin 'hashivim/vim-vaultproject'
-Plugin 'justinmk/vim-syntax-extra'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-bundler'
-Plugin 'saltstack/salt-vim'
-"
-Plugin 'vim-scripts/sqlite_c'
-Plugin 'chrisbra/SudoEdit.vim'
-Plugin 'vim-ctrlspace/vim-ctrlspace'
-" Plugin 'kien/tabman.vim'
-Plugin 'vim-scripts/taglist.vim'
-Plugin 'vim-scripts/a.vim'
-Plugin 'vim-scripts/c.vim'
-Plugin 'vim-scripts/csv.vim'
-Plugin 'vim-scripts/syntaxm4.vim'
-Plugin 'sukima/xmledit'
-Plugin 'xu-cheng/brew.vim'
-" Color I use
-Plugin 'altercation/vim-colors-solarized'
-" Alternate color coding
-" Plugin 'twerth/ir_black'
-Plugin 'junegunn/vader.vim'
-Plugin 'vim-scripts/vim-do'
-Plugin 'will133/vim-dirdiff'
-Plugin 'BrianAker/vim-groovy'
-Plugin 'vim-scripts/grails-vim'
-Plugin 'keith/swift.vim'
-Plugin 'JulesWang/css.vim'
-Plugin 'kurayama/systemd-vim-syntax'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'uarun/vim-protobuf'
-Plugin 'fatih/vim-go'
-Plugin 'vim-scripts/vim-gtest'
-Plugin 'dearrrfish/vim-applescript'
-Plugin 'elzr/vim-json'
-Plugin 'tpope/vim-jdaddy'
-Plugin 'moll/vim-node'
-" Plugin 'Yggdroot/indentLine'
-Plugin 'tpope/vim-projectionist'
-Plugin 'syngan/vim-vimlint'
-Plugin 'ynkdir/vim-vimlparser'
-Plugin 'vim-jekyll'
-Plugin 'Clavelito/indent-sh.vim'
-
-" Both required for Markdown
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'JamshedVesuna/vim-markdown-preview'
-
-" Vim Liquid runtime files with Jekyll enhancements
-Plugin 'tpope/vim-liquid'
-
-" Unused for the moment
-Plugin 'mattn/webapi-vim'
-
-" Unused for the moment
-Plugin 'mattn/gist-vim'
-
-" OpenHab
-Plugin 'cyberkov/openhab-vim'
-
-" Arduino
-Plugin 'vim-scripts/Arduino-syntax-file'
-"
-"Plugin 'gu-fan/colorv.vim'
-"
-Plugin 'editorconfig/editorconfig-vim'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+"  call vundle#begin()
+call plug#begin('~/.vim/pack/my-plugins/start')
+"  
+"  " let Syntastic take its turn
+"  " Plug 'scrooloose/syntastic'
+"  Plug 'w0rp/ale'
+"  
+"  " let Polyglot take its turn
+"  " Plug 'sheerun/vim-polyglot'
+"  
+"  " vim-scripts repos
+"  Plug 'airblade/vim-gitgutter.git'
+"  Plug 'vim-airline/vim-airline'
+"  "Plug 'vim-airline/vim-airline-themes'
+"  Plug 'Absolight/vim-bind.git'
+"  Plug 'BrianAker/dhcpd.vim'
+"  Plug 'dkprice/vim-easygrep'
+"  Plug 'sjl/gundo.vim'
+"  Plug 'vim-scripts/gdbmgr'
+"  Plug 'pearofducks/ansible-vim'
+"  Plug 'Rip-Rip/clang_complete'
+"  Plug 'vim-scripts/cmdalias.vim'
+"  " Plug 'vim-legalese'
+"  " Plug 'vim-scripts/cpp.vim'
+"  Plug 'vim-jp/vim-cpp'
+"  "
+"  " additional vim c++ syntax 
+"  Plug 'octol/vim-cpp-enhanced-highlight'
+"  Plug 'darfink/vim-plist'
+"  
+"  " Git made easy for vim
+"  Plug 'tpope/vim-fugitive'
+"  
+"  " Plug 'git-commit'
+"  Plug 'vim-scripts/gnupg.vim'
+"  Plug 'vim-scripts/ifdef-highlighting'
+"  " Plug 'ingydotnet/yaml-vim'
+"  " Plug 'vim-scripts/lodgeit.vim'
+"  " Color scheme I do not use
+"  " Plug 'molokai'
+"  Plug 'mitsuhiko/vim-jinja'
+"  " Plug 'myint/syntastic-extras'
+"  Plug 'nvie/vim-flake8'
+"  Plug 'hashivim/vim-consul'
+"  Plug 'hashivim/vim-nomadproject'
+"  Plug 'hashivim/vim-ottoproject'
+"  Plug 'hashivim/vim-packer'
+"  Plug 'hashivim/vim-terraform'
+"  Plug 'hashivim/vim-vagrant'
+"  Plug 'hashivim/vim-vaultproject'
+"  Plug 'justinmk/vim-syntax-extra'
+"  Plug 'vim-ruby/vim-ruby'
+"  Plug 'tpope/vim-rails'
+"  Plug 'tpope/vim-bundler'
+"  Plug 'saltstack/salt-vim'
+"  "
+"  Plug 'vim-scripts/sqlite_c'
+"  Plug 'chrisbra/SudoEdit.vim'
+"  Plug 'vim-ctrlspace/vim-ctrlspace'
+"  " Plug 'kien/tabman.vim'
+"  Plug 'vim-scripts/taglist.vim'
+"  Plug 'vim-scripts/a.vim'
+"  Plug 'vim-scripts/c.vim'
+"  Plug 'vim-scripts/csv.vim'
+"  Plug 'vim-scripts/syntaxm4.vim'
+"  Plug 'sukima/xmledit'
+"  Plug 'xu-cheng/brew.vim'
+"  " Color I use
+"  Plug 'altercation/vim-colors-solarized'
+"  " Alternate color coding
+"  " Plug 'twerth/ir_black'
+"  Plug 'junegunn/vader.vim'
+"  Plug 'vim-scripts/vim-do'
+"  Plug 'will133/vim-dirdiff'
+"  Plug 'BrianAker/vim-groovy'
+"  Plug 'vim-scripts/grails-vim'
+"  Plug 'keith/swift.vim'
+"  Plug 'JulesWang/css.vim'
+"  Plug 'kurayama/systemd-vim-syntax'
+"  Plug 'leafgarland/typescript-vim'
+"  Plug 'uarun/vim-protobuf'
+"  Plug 'fatih/vim-go'
+"  Plug 'vim-scripts/vim-gtest'
+"  Plug 'dearrrfish/vim-applescript'
+"  Plug 'elzr/vim-json'
+"  Plug 'tpope/vim-jdaddy'
+"  Plug 'moll/vim-node'
+"  " Plug 'Yggdroot/indentLine'
+"  Plug 'tpope/vim-projectionist'
+"  Plug 'syngan/vim-vimlint'
+"  Plug 'ynkdir/vim-vimlparser'
+"  Plug 'vim-jekyll'
+"  Plug 'Clavelito/indent-sh.vim'
+"  
+"  " Both required for Markdown
+"  Plug 'godlygeek/tabular'
+"  Plug 'plasticboy/vim-markdown'
+"  Plug 'JamshedVesuna/vim-markdown-preview'
+"  
+"  " Vim Liquid runtime files with Jekyll enhancements
+"  Plug 'tpope/vim-liquid'
+"  
+"  " Unused for the moment
+"  Plug 'mattn/webapi-vim'
+"  
+"  " Unused for the moment
+"  Plug 'mattn/gist-vim'
+"  
+"  " OpenHab
+"  Plug 'cyberkov/openhab-vim'
+"  
+"  " Arduino
+"  Plug 'vim-scripts/Arduino-syntax-file'
+"  "
+"  "Plug 'gu-fan/colorv.vim'
+"  "
+"  Plug 'editorconfig/editorconfig-vim'
+"  
+"  " All of your Plugs must be added before the following line
+call plug#end()

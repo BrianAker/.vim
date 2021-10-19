@@ -16,14 +16,18 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 
+call plug#begin('~/.vim/pack/my-plugins/start')
+Plug 'vim-syntastic/syntastic'
+call plug#end()
+
 " if exists('g:loaded_syntastic_plugin') || &compatible
 if ! has('autocmd')
     finish
 endif
 
-if isdirectory( expand("$HOME/.vim/bundle/Vundle.vim") )
-    runtime bundle.vim
-endif
+"if isdirectory( expand("$HOME/.vim/bundle/Vundle.vim") )
+"    runtime bundle.vim
+"endif
 
 if filereadable( expand("$HOME/.vim/bundle/vim-colors-solarized/README.mkd") )
     "
@@ -118,7 +122,7 @@ let g:vim_markdown_folding_disabled=1
 " END vim-markdown
 
 " BEGIN Syntastic configuration
-if join(g:vundle#bundles) =~# 'syntastic'
+"if join(g:vundle#bundles) =~# 'syntastic'
     set statusline+=%#warningmsg#
     set statusline+=%{SyntasticStatuslineFlag()}
     set statusline+=%*
@@ -152,7 +156,7 @@ if join(g:vundle#bundles) =~# 'syntastic'
 
     " Run all checkers
     let g:syntastic_aggregate_errors = 1
-endif " End Syntastic configuration
+"endif " End Syntastic configuration
 "
 " elzr-vim
 let g:vim_json_syntax_conceal = 0
@@ -165,7 +169,7 @@ let g:ansible_name_highlight = 'b'
 let g:polyglot_disabled = ['ansible']
 
 " indentLine - https://github.com/Yggdroot/indentLine
-if join(g:vundle#bundles) =~# 'indentLine'
+"if join(g:vundle#bundles) =~# 'indentLine'
     " Vim
     let g:indentLine_color_term = 239
 
@@ -175,14 +179,14 @@ if join(g:vundle#bundles) =~# 'indentLine'
     " none X terminal
     let g:indentLine_color_tty_light = 7 " (default: 4)
     let g:indentLine_color_dark = 1 " (default: 2)
-endif
+"endif
 
 " Airline
-if join(g:vundle#bundles) =~# 'vim-airline'
+"if join(g:vundle#bundles) =~# 'vim-airline'
     "let g:airline#extensions#syntastic#enabled = 1
     "let g:airline#extensions#tabline#enabled = 1
     let g:airline#extensions#tabline#show_buffers = 0
-endif
+"endif
 
 " Clang
 if has("macunix")
@@ -190,7 +194,7 @@ if has("macunix")
 endif
 
 " Automatic GdbMgr Invocation:
-if join(g:vundle#bundles) =~# 'gdbmgr'
+"if join(g:vundle#bundles) =~# 'gdbmgr'
     if has("unix") && executable("file") && !&l:binary
         if executable(expand("<afile>"))
             let s:file_type= system("file ".expand("<afile>"))
@@ -200,7 +204,7 @@ if join(g:vundle#bundles) =~# 'gdbmgr'
             unlet s:file_type
         endif
     endif
-endif
+"endif
 
 set nofoldenable    " disable folding
 
@@ -236,3 +240,5 @@ endif
 
 " Format JSON
 "com! FormatJSON %!python -m json.tool
+
+set nofoldenable
