@@ -1,11 +1,10 @@
 " vim:set softtabstop=4 shiftwidth=4 expandtab :
 " NOTE: vim-scripts is no longer being updated on Github, I am still using
 " them for reference versions at this time
-"  call vundle#begin()
 call plug#begin('~/.vim/pack/my-plugins/start')
 "  
 "  " let Syntastic take its turn
-"  " Plug 'scrooloose/syntastic'
+Plug 'vim-syntastic/syntastic'
 "  Plug 'w0rp/ale'
 "  
 "  " let Polyglot take its turn
@@ -13,10 +12,10 @@ call plug#begin('~/.vim/pack/my-plugins/start')
 "  
 "  " vim-scripts repos
 "  Plug 'airblade/vim-gitgutter.git'
-"  Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 "  "Plug 'vim-airline/vim-airline-themes'
 "  Plug 'Absolight/vim-bind.git'
-"  Plug 'BrianAker/dhcpd.vim'
+Plug 'BrianAker/dhcpd.vim'
 "  Plug 'dkprice/vim-easygrep'
 "  Plug 'sjl/gundo.vim'
 "  Plug 'vim-scripts/gdbmgr'
@@ -32,7 +31,7 @@ call plug#begin('~/.vim/pack/my-plugins/start')
 "  Plug 'darfink/vim-plist'
 "  
 "  " Git made easy for vim
-"  Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 "  
 "  " Plug 'git-commit'
 "  Plug 'vim-scripts/gnupg.vim'

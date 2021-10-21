@@ -11,3 +11,5 @@ gvimrc
 vimrc
 .VimballRecord
 autoload/plug.vim
+pack/vim-plug
+pack/my-plugins

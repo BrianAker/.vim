@@ -16,8 +16,14 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 
-call plug#begin('~/.vim/pack/my-plugins/start')
+call plug#begin('~/.vim/pack/vim-plug/start')
 Plug 'vim-syntastic/syntastic'
+Plug 'tpope/vim-fugitive'
+Plug 'pearofducks/ansible-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'airblade/vim-gitgutter'
+Plug 'chrisbra/csv.vim'
 call plug#end()
 
 " if exists('g:loaded_syntastic_plugin') || &compatible
