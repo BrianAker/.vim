@@ -19,7 +19,7 @@ Plug 'BrianAker/dhcpd.vim'
 "  Plug 'dkprice/vim-easygrep'
 "  Plug 'sjl/gundo.vim'
 "  Plug 'vim-scripts/gdbmgr'
-"  Plug 'pearofducks/ansible-vim'
+Plug 'pearofducks/ansible-vim'
 "  Plug 'Rip-Rip/clang_complete'
 "  Plug 'vim-scripts/cmdalias.vim'
 "  " Plug 'vim-legalese'
@@ -118,5 +118,9 @@ Plug 'tpope/vim-fugitive'
 "  "
 "  Plug 'editorconfig/editorconfig-vim'
 "  
+"lug 'vim/killersheep'
+"Plug '/opt/homebrew/opt/fzf'
+"
 "  " All of your Plugs must be added before the following line
 call plug#end()
+

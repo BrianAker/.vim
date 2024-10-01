@@ -20,7 +20,8 @@ EDITOR:= vim
 VIM:= vim -u $(VIMRC_VIM) -T vt100
 VIMPLUG:= autoload/plug.vim
 BUNDLE_LAST_UPDATED:= bundle/.last_updated
-VIMPLUG_DIR:= bundle/vim-plug/plug.vim
+VIMPLUG_DIR:= autoload/plug.vim
+#VIMPLUG_DIR:= bundle/vim-plug/plug.vim
 VIMPLUG_REPO:= https://github.com/junegunn/vim-plug
 INSTALL_C:= install -C
 TOUCH_R:= touch -r
@@ -75,6 +76,7 @@ $(BUNDLE_LAST_UPDATED): $(BUNDLE_VIM)
 
 .phony: install
 install: | all check $(VIMRC) gvimrc
+	@$(VIM) -es -u vimrc -i NONE -c "PlugInstall" -c "qa"
 
 gvimrc: gvimrc.vim
 	@$(INSTALL_C) $< $@
@@ -84,11 +86,15 @@ check: all
 	@$(VIM) +qall
 	@$(VIM) +PlugStatus +qall
 
-$(VIMPLUG): $(VIMPLUG_DIR)
-	@$(INSTALL_C) $< $@
+#$(VIMPLUG): $(VIMPLUG_DIR)
+$(VIMPLUG):
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+#	@$(INSTALL_C) $< $@
 	
-$(VIMPLUG_DIR):
-	git clone $(VIMPLUG_REPO) $@
+#$(VIMPLUG_DIR):
+#	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+#	git clone $(VIMPLUG_REPO) $@
 
 .PHONY: update
 update:

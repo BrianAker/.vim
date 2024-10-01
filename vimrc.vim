@@ -16,14 +16,25 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 
-call plug#begin('~/.vim/pack/vim-plug/start')
+" call plug#begin('~/.vim/pack/vim-plug/start')
+call plug#begin()
 Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'pearofducks/ansible-vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'chrisbra/csv.vim'
+"Plug 'lyuts/vim-rtags'
+"Plug 'dense-analysis/ale'
+Plug 'BrianAker/vim-yaml'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'pboettch/vim-cmake-syntax'
+Plug 'vim/killersheep'
+"Plug '/opt/homebrew/opt/fzf'
+"Plug 'junegunn/fzf.vim'
+Plug 'Exafunction/codeium.vim', { 'branch': 'main' }
+Plug 'vim-scripts/diffchanges.vim'
 call plug#end()
 
 " if exists('g:loaded_syntastic_plugin') || &compatible
@@ -221,9 +232,9 @@ set nobackup
 set wildmenu
 set wildmode=list:longest
 
-augroup vimrcEx
-    autocmd VimEnter * call CmdAlias('X','x')
-augroup END
+" augroup vimrcEx
+"     autocmd VimEnter * call CmdAlias('X','x')
+" augroup END
 
 set wildignore+=*.retry
 set guioptions+=e

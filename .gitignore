@@ -13,3 +13,4 @@ vimrc
 autoload/plug.vim
 pack/vim-plug
 pack/my-plugins
+plugged
