@@ -26,14 +26,17 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'chrisbra/csv.vim'
 "Plug 'lyuts/vim-rtags'
-"Plug 'dense-analysis/ale'
+Plug 'https://github.com/dense-analysis/ale'
 Plug 'BrianAker/vim-yaml'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'pboettch/vim-cmake-syntax'
 Plug 'vim/killersheep'
-Plug 'vim-scripts/diffchanges.vim'
+Plug 'https://github.com/vim-scripts/diffchanges.vim'
 Plug 'https://github.com/preservim/vim-markdown'
-Plug 'dense-analysis/ale'
+"Plug 'ggml-org/llama.vim'
+Plug 'https://github.com/z-shell/zi-vim-syntax'
+Plug 'vim-scripts/a.vim'
+" Plug 'CoderCookE/vim-chatgpt'
 call plug#end()
 
 if ! has('autocmd')
@@ -66,7 +69,7 @@ set mps+=<:>
 augroup YACC
     " Recognize yy files as Yacc
     autocmd BufRead,BufNewFile *.yy setfiletype yacc
-    " autocmd BufRead *.test set syntax=mysql_test     
+    " autocmd BufRead *.test set syntax=mysql_test
 augroup END
 
 
@@ -80,16 +83,16 @@ set mousehide           " Hide the mouse when typing text
 set visualbell t_vb=
 
 " augroup myfiletype
-" autocmd BufNewFile,BufRead *.i set filetype=swig 
-" autocmd BufNewFile,BufRead *.swg set filetype=swig 
+" autocmd BufNewFile,BufRead *.i set filetype=swig
+" autocmd BufNewFile,BufRead *.swg set filetype=swig
 " autocmd BufNewFile,BufRead *.j2 set filetype=jinja
 " augroup END
 
-" map  :Lodgeit<CR> 
+" map  :Lodgeit<CR>
 
 " BEGIN syntax/m4.vim
-let g:m4_default_quote="`,'" 
-let g:m4_default_comment='#' 
+let g:m4_default_quote="`,'"
+let g:m4_default_comment='#'
 " END syntax/m4.vim
 "
 
@@ -156,6 +159,15 @@ if has_key(plugs, 'indentLine')
     let g:indentLine_color_dark = 1 " (default: 2)
 endif
 
+if has_key(plugs, 'ale')
+    " In ~/.vim/vimrc, or somewhere similar.
+    let g:ale_fixers = {
+                \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+                \   'javascript': ['eslint'],
+                \}
+    let g:ale_fix_on_save = 1
+endif
+
 " Airline
 if has_key(plugs, 'vim-airline')
     "let g:airline#extensions#syntastic#enabled = 1
@@ -214,6 +226,9 @@ if has("clipboard")
 endif
 
 " Format JSON
-"com! FormatJSON %!python -m json.tool
+com! FormatJSON %!jq .
+
+" Let Airline use ale
+let g:airline#extensions#ale#enabled = 1
 
 set nofoldenable
