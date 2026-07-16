@@ -18,7 +18,6 @@ set expandtab
 
 " call plug#begin('~/.vim/pack/vim-plug/start')
 call plug#begin()
-"Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'pearofducks/ansible-vim'
 Plug 'vim-airline/vim-airline'
@@ -100,43 +99,6 @@ let g:m4_default_comment='#'
 let g:vim_markdown_folding_disabled=1
 " END vim-markdown
 
-" BEGIN Syntastic configuration
-if exists('g:loaded_syntastic_plugin')
-    set statusline+=%#warningmsg#
-    set statusline+=%{SyntasticStatuslineFlag()}
-    set statusline+=%*
-
-    let g:syntastic_always_populate_loc_list = 1
-    let g:syntastic_auto_loc_list = 1
-    let g:syntastic_check_on_open = 0
-    let g:syntastic_check_on_wq = 0
-    let g:syntastic_cpp_check_header = 0
-    let g:syntastic_cpp_remove_include_errors = 1
-    let g:syntastic_auto_jump = 1
-    "  Extras
-    let g:syntastic_markdown_checkers = ['mdl']
-    let g:syntastic_yaml_checkers = ['pyyaml']
-    let g:syntastic_cfg_checkers = ['cfg']
-    let g:syntastic_dosini_checkers = ['dosini']
-    let g:syntastic_make_checkers = ['gnumake']
-    let g:syntastic_javascript_checkers = ['jslint']
-    let g:syntastic_json_checkers = ['jsonlint']
-    let g:syntastic_gitcommit_checkers = ['language_check']
-    let g:syntastic_svn_checkers = ['language_check']
-    let g:syntastic_vim_checkers = ['vimlint']
-    let g:syntastic_sh_checkers = ['shellcheck']
-    let g:syntastic_sh_shellcheck_args = "-s bash"
-    let g:my_syntastic_quiet_messages = ['SC2148', 'SC1090', 'SC2039', 'SC2112']
-    let g:syntastic_quiet_messages = { 'regex': g:my_syntastic_quiet_messages }
-    let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
-    let g:syntastic_loc_list_height=3
-    " Obvious security issue to resolve
-    " let g:syntastic_enable_perl_checker = 1
-
-    " Run all checkers
-    let g:syntastic_aggregate_errors = 1
-endif " End Syntastic configuration
-
 " elzr-vim
 let g:vim_json_syntax_conceal = 0
 
@@ -170,9 +132,8 @@ endif
 
 " Airline
 if has_key(plugs, 'vim-airline')
-    "let g:airline#extensions#syntastic#enabled = 1
-    "let g:airline#extensions#tabline#enabled = 1
     let g:airline#extensions#tabline#show_buffers = 0
+    let g:airline#extensions#tabline#enabled = 1
 endif
 
 " Clang
