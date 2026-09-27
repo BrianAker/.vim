@@ -72,10 +72,10 @@ augroup YACC
 augroup END
 
 
-augroup position
-    " When editing a file, always jump to the last cursor position
-    autocmd BufReadPost * if line("'\"") && line("'\"") <= line("$") | exe "normal `\"" | endif
-augroup END
+" augroup position
+"     " When editing a file, always jump to the last cursor position
+"     autocmd BufReadPost * if line("'\"") && line("'\"") <= line("$") | exe "normal `\"" | endif
+" augroup END
 
 set path=**2
 set mousehide           " Hide the mouse when typing text
@@ -193,3 +193,14 @@ com! FormatJSON %!jq .
 let g:airline#extensions#ale#enabled = 1
 
 set nofoldenable
+
+augroup RestoreCursor
+    autocmd!
+    autocmd BufReadPost *
+                \ let line = line("'\"")
+                \ | if line >= 1 && line <= line("$") && &filetype !~# 'commit'
+                \      && index(['xxd', 'gitrebase'], &filetype) == -1
+                \      && !&diff
+                \ |   execute "normal! g`\""
+                \ | endif
+augroup END
